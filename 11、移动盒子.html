@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            /* 记得加定位 */
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn600">点击到600</button>
+    <button class="btn1000">点击到1000</button>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        let btn600 = document.querySelector('.btn600');
+        let btn1000 = document.querySelector('.btn1000');
+        // 记得加定位
+        //1、让盒子移动的距离慢慢减小。
+        //2、核心算法：（目标值-现在的位置）/10做每次移动的距离。
+        //3、停止的条件： 让盒子位置等于目标值。
+        function animata(obj, targer) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                //步长值写在定时器里面
+                //把步长值改为整数
+                //向上取整
+                //let step = Math.ceil((targer - obj.offsetLeft) / 10);
+                let step = (targer - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil((targer - obj.offsetLeft) / 10) : Math.floor((targer - obj.offsetLeft) / 10);
+                if (obj.offsetLeft == targer) {
+                    clearInterval(obj.timer);
+                }
+                else {
+                    //把每次加1换成不长公式    （目标值-现在的位置）/10做每次移动的距离
+                    obj.style.left = obj.offsetLeft + step + 'px';
+                }
+            }, 15)
+
+
+        }
+        btn600.addEventListener('click', function () {
+            animata(div, 600);
+        })
+        btn1000.addEventListener('click', function () {
+            animata(div, 1000);
+        })
+        //匀速动画 就是 盒子是当前的位置 + 固定的位置
+        //缓动画 就是 盒子是当前的位置 + 变化的值（目标值 -现在的位置）/10
+    </script>
+</body>
+
+</html>

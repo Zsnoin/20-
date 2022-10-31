@@ -1,0 +1,382 @@
+/* 初始化 */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 1530px;
+}
+
+/* 顶部模块 */
+.shop-head {
+    width: 1530px;
+    height: 40px;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.shop-head-top {
+    width: 1400px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.login li {
+    height: 40px;
+    font-size: 10px;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+    margin-left: 10px;
+}
+
+.menu li {
+    height: 40px;
+    font-size: 10px;
+    float: right;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* 搜索框 */
+.search {
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    width: 1400px;
+    height: 100px;
+}
+
+.search img {
+    margin-top: 20px;
+}
+
+.search span {
+    font-size: 30px;
+    margin-left: 20px;
+    position: relative;
+    top: -22px;
+}
+
+.search div {
+    float: right;
+    height: 100px;
+    line-height: 100px;
+}
+
+.search div input {
+    border: 2px solid red;
+    font-size: 20px;
+    width: 500px;
+    height: 34px;
+}
+
+.search div button {
+    position: absolute;
+    width: 60px;
+    font-size: 15px;
+    height: 35px;
+    z-index: 1000;
+    margin-left: -60px;
+    margin-top: 32px;
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+}
+
+/* 商品内容板块 */
+.content {
+    font-size: 15px;
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.content-one {
+    width: 100px;
+    font-size: 20px;
+    text-align: center;
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+.del {
+    margin-left: 80px;
+    width: 50px;
+    height: 25px;
+    background-color: blue;
+    color: white;
+    line-height: 25px;
+    border-radius: 6px;
+
+}
+
+.content-two {
+    width: 1400px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.content-two .two-left li {
+    float: left;
+    text-align: center;
+    width: 100px;
+    line-height: 50px;
+}
+
+.content-two .two-right li {
+    float: right;
+    width: 200px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.content-three .three-left li {
+    float: left;
+    width: 100px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.book-three {
+    margin-top: 30px;
+    margin-left: 100px;
+    position: absolute;
+    width: 300px;
+}
+
+.content-three .three-right li {
+    float: right;
+    width: 200px;
+    text-align: center;
+    margin-top: 90px;
+}
+
+.content-three .three-right li .decrement {
+    display: inline-block;
+    width: 20px;
+}
+
+.content-three .three-right li .increment {
+    display: inline-block;
+    width: 20px;
+}
+
+.content-three .three-right li:nth-child(1) {
+    cursor: pointer;
+}
+
+.content-three .three-right li span {
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid grey;
+}
+
+.content-three .three-right li input {
+    position: relative;
+    top: -1.8px;
+    width: 30px;
+    text-align: center;
+    height: 19px;
+}
+
+.content-three .three-right li span:nth-child(1) {
+    cursor: pointer;
+}
+
+.content-three .three-right li span:nth-child(3) {
+    cursor: pointer;
+}
+
+.content-three,
+.content-four,
+.content-five {
+    margin-top: 20px;
+    width: 1400px;
+    height: 200px;
+    background-color: white;
+    border-top: 2px solid rgba(128, 128, 128, 0.4);
+    border-bottom: 2px solid rgba(128, 128, 128, 0.4);
+}
+
+/* six 结算模块 */
+.content-closing {
+    width: 1400px;
+    max-width: 0 auto;
+    height: 50px;
+    background-color: rgba(128, 128, 128, 0.2);
+    margin-top: 20px;
+}
+
+.del-checked {
+    cursor: pointer;
+}
+
+.clear-shop {
+    cursor: pointer;
+}
+
+.content-closing .six-left li {
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    width: 150px;
+}
+
+.content-closing .six-right li span {
+    color: red;
+}
+
+.content-closing .six-right li button {
+    right: -100px;
+    position: relative;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.content-closing .six-right li {
+    overflow: hidden;
+    float: right;
+    line-height: 50px;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+}
+
+
+/* last 底部 */
+.last {
+    position: relative;
+    width: 1530px;
+    height: 600px;
+    margin: 0 auto;
+    background-color: rgba(128, 128, 128, 0.2);
+    margin-top: 20px;
+}
+
+.last .last-one {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.last .last-one ul li {
+    box-sizing: border-box;
+    width: 20%;
+    height: 180px;
+    float: left;
+}
+
+.last .last-one ul li div:nth-child(1) {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-left: 70px;
+    margin-top: 50px;
+
+}
+
+.last .last-one ul li div {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.last-figure1 {
+    background: url(./icons.png) no-repeat -253px -3px;
+}
+
+.last-figure2 {
+    background: url(./icons.png) no-repeat -255px -54px;
+}
+
+.last-figure3 {
+    background: url(./icons.png) no-repeat -257px -106px;
+}
+
+.last-figure4 {
+    background: url(./icons.png) no-repeat -257px -157px;
+}
+
+.last-figure5 {
+    background: url(./icons.png) no-repeat -256px -209px;
+}
+
+/* last-two */
+.last-two {
+    position: relative;
+    top: 250px;
+    margin: 0 auto;
+    width: 1400px;
+    height: 200px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.last-two ul {
+    font-size: 10px;
+    position: relative;
+    float: left;
+    top: -150px;
+    left: 50px;
+    width: 16%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.last-two ul li:nth-child(1) {
+    font-size: 20px;
+}
+
+/* last-three */
+.last-three {
+    text-align: center;
+    position: relative;
+    top: 150px;
+    margin: 0 auto;
+    height: 30px;
+    width: 1000px;
+    cursor: pointer;
+}
+
+.last-three .ul {
+    height: 110px;
+}
+
+.last-three .ul li {
+    text-align: center;
+    position: relative;
+    float: left;
+}
+
+.last-three .ul1 li {
+    font-size: 10px;
+    position: relative;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* 选中后添加背景颜色 */
+.change {
+    background-color: bisque;
+}

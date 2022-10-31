@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 1px solid grey;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .box .DIV {
+            margin: 30px;
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        .box .div {
+            Box-shadow: 10px 10px 10px rgba(0, .5);
+            position: relative;
+            font-size: 0;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+        }
+
+        .class1 {
+            background: url(./图片/1.jpg) no-repeat;
+            background-size: 50px 50px;
+        }
+
+        .class2 {
+            background: url(./图片/2.jpg) no-repeat;
+            background-size: 50px 50px;
+        }
+
+        .class3 {
+            background: url(./图片/3.jpg) no-repeat;
+            background-size: 50px 50px;
+        }
+
+        .class4 {
+            background: url(./图片/4.png) no-repeat;
+            background-size: 50px 50px;
+        }
+
+        .class5 {
+            background: url(./图片/5.png) no-repeat;
+            background-size: 50px 50px;
+        }
+
+        .change {
+            display: none;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .select .div {
+            font-size: 0;
+            float: left;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <p><button>增加难度</button></p>
+    <div class="box">
+        <div class="DIV">
+            <div class="class1 div">1</div>
+        </div>
+        <div class="DIV">
+            <div class="class4 div">4</div>
+        </div>
+        <div class="DIV">
+            <div class="class3 div">3</div>
+        </div>
+        <div class="DIV">
+            <div class="class3 div">3</div>
+        </div>
+        <div class="DIV">
+            <div class="class5 div">5</div>
+        </div>
+        <div class="DIV">
+            <div class="class1 div">1</div>
+        </div>
+        <div class="DIV">
+            <div class="class2 div">2</div>
+        </div>
+        <div class="DIV">
+            <div class="class3 div">3</div>
+        </div>
+        <div class="DIV">
+            <div class="class4 div">4</div>
+        </div>
+        <div class="DIV">
+            <div class="class5 div">5</div>
+        </div>
+        <div class="DIV">
+            <div class="class2 div">2</div>
+        </div>
+        <div class="DIV">
+            <div class="class5 div">5</div>
+        </div>
+        <div class="DIV">
+            <div class="class4 div">4</div>
+        </div>
+        <div class="DIV">
+            <div class="class2 div">2</div>
+        </div>
+        <div class="DIV">
+            <div class="class1 div">1</div>
+        </div>
+        <div class="DIV">
+            <div class="class1 div">1</div>
+        </div>
+        <div class="DIV">
+            <div class="class3 div">3</div>
+        </div>
+        <div class="DIV">
+            <div class="class2 div">2</div>
+        </div>
+        <div class="DIV">
+            <div class="class5 div">5</div>
+        </div>
+        <div class="DIV">
+            <div class="class4 div">4</div>
+        </div>
+    </div>
+    <div class="select">
+
+    </div>
+    <script>
+        let btn = document.querySelector('button')
+        function games() {
+            let divs = document.querySelectorAll('.box .DIV .div')
+            let btn = document.querySelector('button')
+            let box = document.querySelector('.box')
+            let bigbox = document.querySelector('.bigbox')
+            let body = document.body
+            let select = document.querySelector('.select')
+            let arr = []
+            for (let i = 0; i < divs.length; i++) {
+                let flag = true;
+                divs[i].onclick = function () {
+                    let select = document.querySelector('.select')
+                    let all = select.querySelectorAll('.div')
+                    console.log(all);
+                    console.log(this);
+                    if (all.length < 10) {
+                        select.appendChild(this)
+                    }
+                    else {
+                        alert('游戏结束')
+                    }
+                }
+            }
+        }
+        games();
+        setInterval(() => {
+            let select = document.querySelector('.select')
+            let all = select.querySelectorAll('.div')
+            for (let j = 0; j < all.length; j++) {
+                let num = 0;
+                for (let k = 1; k < all.length; k++) {
+                    if (all[j].innerText == all[k].innerText) {
+                        num++;
+                        console.log(num);
+                    }
+                }
+            }
+        }, 500)
+    </script>
+</body>
+
+</html>

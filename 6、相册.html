@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+        }
+        .bigimg{
+            width: 400px;
+            height: 200px;
+        }
+        .bigimg img{
+            width: 400px;
+            height: 200px;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        ul li{
+            width: 100px;
+            height: 50px;
+            float: left;
+        }
+        ul li img{
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="bigimg">
+            <img src="./壁纸/1.jpg" alt="">
+        </div>
+        <ul>
+            <li>
+                <img src="./壁纸/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./壁纸/11.jpg" alt="">
+            </li>
+            <li>
+                <img src="./壁纸/12.jpg" alt="">
+            </li>
+            <li>
+                <img src="./壁纸/13.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <script>
+        let liImg = document.querySelectorAll('ul li img');
+        let Bigimg = document.querySelector('.bigimg img')
+        for (let i = 0; i < liImg.length; i++) {
+            liImg[i].onclick = function(){
+                Bigimg.src = this.src;
+            }
+        }
+    </script>
+</body>
+</html>

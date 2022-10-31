@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 400px;
+            border: 1px solid grey;
+            margin: 0 auto;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        .ul2 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="ul1">
+            <li>手机</li>
+            <li>价格：1899</li>
+            <li><button class="btn">去支付</button></li>
+        </ul>
+        <ul class="ul2">
+            <li>支付成功</li>
+            <li class="lis">等待10秒后返回</li>
+            <li><button class="btn1">立即返回</button></li>
+        </ul>
+        <script>
+            let btn = document.querySelector('.btn');
+            let uls = document.querySelectorAll('ul');
+            let lis = document.querySelector('.lis');
+            let btn1 = document.querySelector('.btn1');
+            btn.addEventListener('click', function () {
+                let num = 10;
+                uls[0].style.display = 'none';
+                uls[1].style.display = 'block';
+                let times = setInterval(function () {
+                    num--;
+                    if (num >= 0) {
+                        uls[0].style.display = 'none';
+                        uls[1].style.display = 'block';
+                        lis.innerHTML = `等待${num}秒后返回`
+                    } else {
+                        clearInterval(times)
+                        num=10;
+                        uls[1].style.display = 'none';
+                        uls[0].style.display = 'block';
+                    }
+                }, 1000)
+                btn1.onclick = function () {
+                uls[1].style.display = 'none';
+                uls[0].style.display = 'block';
+                clearInterval(times);
+            }
+            });
+        </script>
+    </div>
+</body>
+
+</html>

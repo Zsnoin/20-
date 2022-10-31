@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        let divs = document.querySelector('div');
+        window.onmousemove = function (e) {
+            let x = e.pageX;
+            let y = e.pageY;
+            divs.style.left = x - divs.offsetWidth / 2 + 'px';
+            divs.style.top = y - divs.offsetHeight / 2 + 'px';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 350px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img {
+            /* transition:1s; */
+            position: absolute;
+            width: 3600px;
+            left: -600px;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .img li img {
+            width: 600px;
+            height: 350px;
+        }
+
+        .img li {
+            float: left;
+            width: 600px;
+        }
+
+        .ric {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .ric li {
+            z-index: 10;
+            position: relative;
+            float: left;
+            margin: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            top: 320px;
+            left: 250px;
+        }
+
+        .change {
+            background-color: red !important;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            font-size: 50px;
+            background-color: rgba(240, 255, 255, 0.4);
+        }
+
+        .left {
+            left: 0;
+            top: 120px;
+        }
+
+        .right {
+            right: 0;
+            top: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="img">
+            <li>
+                <a href="javascript:;">
+                    <img src="/壁纸/12.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="/壁纸/1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="/壁纸/10.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="/壁纸/11.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="/壁纸/12.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="/壁纸/1.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+        <ul class="ric">
+            <li class="change"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span class="left">
+            < </span>
+                <span class="right">></span>
+    </div>
+    <script>
+        let num = 1;
+        let ulImg = document.querySelector('.img');
+        let ric_lis = document.querySelectorAll('.ric li');
+        let box = document.querySelector('.box');
+        let spans = document.querySelectorAll('span')
+        let timer = null;
+        console.log(ric_lis);
+        fn();
+        // 定时器函数
+        function fn() {
+            timer = setInterval(function () {
+                num++;
+                fd();
+            }, 1000);
+        };
+        // 自动移动函数
+        function fd() {
+            if (num < 5) {
+                ulImg.style.transition = '1s';
+                ulImg.style.left = -num * 600 + 'px';
+                for (let i = 0; i < ric_lis.length; i++) {
+                    ric_lis[i].className = '';
+                }
+                ric_lis[num - 1].className = 'change'
+            }
+            else if (num == 5) {
+                num = 0;
+                ulImg.style.transition = '0s';
+                ulImg.style.left = -num * 600 + 'px';
+            }
+        }
+        // 点击右侧按键调用该函数
+        function fd1() {
+            if (num > 0) {
+                ulImg.style.transition = '1s';
+                ulImg.style.left = -num * 600 + 'px';
+                for (let i = 0; i < ric_lis.length; i++) {
+                    ric_lis[i].className = '';
+                }
+                ric_lis[num - 1].className = 'change'
+            }
+            else if (num == 0) {
+                num = 5;
+                ulImg.style.transition = '0s';
+                ulImg.style.left = -num * 600 + 'px';
+            }
+        }
+        box.onmouseenter = function () {
+            clearInterval(timer);
+            spans[0].style.display = 'block';
+            spans[1].style.display = 'block';
+            spans[1].onclick = function () {
+                num++;
+                fd();
+            }
+            spans[0].onclick = function () {
+                num--;
+                console.log(num);
+                fd1();
+            }
+        }
+        box.onmouseleave = function () {
+            spans[0].style.display = 'none';
+            spans[1].style.display = 'none';
+            fn();
+        }
+        // 点击小圆点
+        for (let i = 0; i < ric_lis.length; i++) {
+            ric_lis[i].onclick = function () {
+                num = i+1;
+                fd();
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

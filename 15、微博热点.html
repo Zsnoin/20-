@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery-3.6.1.min.js"></script>
+    <style>
+        div {
+            background-color: blue;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+    <div>
+
+    </div>
+    <ol>
+
+    </ol>
+    <script>
+        let ul = document.querySelector('ul');
+        $.ajax({
+            type: "get",
+            url: "./15、new.json",
+            data: "data",
+            dataType: "json",
+            success: function (res) {
+                let str = ''
+                res.data.forEach(ele => {
+                    console.log(ele);
+                    str += `
+                    <li><a href="">${ele.title}</a><span>${ele.num}</span></li>
+                    `
+                });
+                ul.innerHTML = str;
+            }
+        });
+        // $.ajax({
+        //     type: "get",
+        //     url: "http://localhost/kejian/top.php",
+        //     data: {},
+        //     dataType: "json",
+        //     success: function (res) {
+        //         console.log(res);
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

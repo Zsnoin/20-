@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            overflow: hidden;
+        }
+
+        ul li {
+            background-color: rgb(228, 155, 60);
+            text-align: center;
+            width: 100px;
+            line-height: 30px;
+            height: 30px;
+            float: left;
+            cursor: pointer;
+        }
+
+        div {
+            position: absolute;
+            background-color: blue;
+            text-align: center;
+            width: 400px;
+            height: 400px;
+            font-size: 60px;
+            line-height: 400px;
+        }
+
+        .change1 {
+            background-color: red;
+            color: white;
+        }
+
+        .change2 {
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div class="change2">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <script>
+        let lis = document.querySelectorAll('li')
+        let divs = document.querySelectorAll('div')
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].className = '';
+                    divs[j].className = ''
+                }
+                this.className = 'change1'
+                divs[i].className = 'change2'
+            }
+        }
+    </script>
+</body>
+
+</html>

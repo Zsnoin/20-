@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOLIST</title>
+    <style>
+        .box {
+            border-radius: 30px;
+            width: 40%;
+            min-width: 400px;
+            font-size: .1875rem;
+            margin: 0 auto;
+            border: 1px solid grey;
+            background-image: linear-gradient(135deg, #C2FFD8 10%, #465EFB 100%);
+        }
+
+        .top {
+            height: 50px;
+            line-height: 30px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .target {
+            border-radius: 10px;
+            padding: 0px 10px;
+            width: 200px;
+            height: 30px;
+            color: blue;
+            border: none;
+            outline: none;
+            background-color: rgba(158, 74, 154, 0.3);
+        }
+
+        button {
+            border-color: red;
+            color: white;
+            background-color: red;
+            border-radius: 10px;
+            position: relative;
+            top: 2px;
+            width: 80px;
+            font-size: 18px;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            min-height: 50px;
+            list-style-type: none;
+        }
+
+        p {
+            font-size: 20px;
+            overflow: hidden;
+        }
+
+        .num1,
+        .num2 {
+            float: right;
+        }
+
+        .no,
+        .yes {
+            margin: 10px 50px;
+        }
+
+        li {
+            margin-top: 10px;
+            position: relative;
+            font-weight: bold;
+            font-size: 15px;
+            overflow: hidden;
+        }
+
+        .del {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .content {
+            word-wrap: break-word;
+            text-indent: 2rem;
+            display: inline-block;
+            width: 80%;
+            border: 1px solid grey;
+            border-radius: 10px;
+            padding: 0px 10px;
+        }
+
+        .select {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 0;
+            left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <span>今日目标</span>
+            <input type="text" class="target">
+            <button>提交</button>
+        </div>
+        <div class="no">
+            <p>未完成目标 <span class="num1"></span></p>
+            <ul>
+
+            </ul>
+        </div>
+        <div class="yes">
+            <p>已完成目标 <span class="num2"></span></p>
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        let NO = document.querySelector('.no').querySelector('ul')
+        let YES = document.querySelector('.yes').querySelector('ul')
+        let selects = document.querySelectorAll('.select')
+        let target = document.querySelector('.target')
+        let btn = document.querySelector('button')
+        let num1 = document.querySelector('.num1')
+        let num2 = document.querySelector('.num2')
+        // 删除函数
+        function del() {
+            let as = document.querySelectorAll('a')
+            for (let j = 0; j < as.length; j++) {
+                as[j].onclick = function () {
+                    this.parentNode.parentNode.remove()
+                    add()
+                }
+            }
+        }
+        del()
+
+        // 完成数量和未完成数量函数
+        function add() {
+            let selects = document.querySelectorAll('.select')
+            let no = 0;
+            let yes = 0;
+            for (let i = 0; i < selects.length; i++) {
+                if (selects[i].checked) {
+                    yes++
+                } else {
+                    no++
+                }
+            }
+            num1.innerText = no;
+            num2.innerText = yes;
+        }
+        add()
+
+        // 完成状态切换函数
+        function changes() {
+            let selects = document.querySelectorAll('.select')
+            for (let i = 0; i < selects.length; i++) {
+                selects[i].onclick = function () {
+                    if (this.checked) {
+                        this.ariaChecked = true;
+                        YES.appendChild(this.parentNode)
+                    } else {
+                        this.ariaChecked = false;
+                        NO.appendChild(this.parentNode)
+                    }
+                    del()
+                    add()
+                }
+            }
+        }
+        changes()
+
+        // 添加目标函数
+        btn.onclick = function () {
+            if (target.value) {
+                let Li = document.createElement('li')
+                Li.innerHTML = `
+                <input type="checkbox" class="select" aria-checked="false">
+                <span class="content">${target.value}</span>
+                <span><a href="javascript:;" class="del">删除</a></span>
+                `
+                target.value = ''
+                console.log(Li)
+                NO.appendChild(Li)
+                changes()
+                del()
+                add()
+            } else {
+                alert('请输入今日内容')
+            }
+        }
+    </script>
+</body>
+
+</html>

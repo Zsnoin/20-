@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-top: 10px;
+            color: red;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <textarea name="" id="" cols="30" rows="10" class="text"></textarea>
+    <button>发布</button>
+    <div>
+        <ul></ul>
+    </div>
+    <script>
+        var texts = document.querySelector('.text');
+        var button = document.querySelector('button');
+        var ul = document.querySelector('div').querySelector('ul');
+        // var li = ul.querySelector('li');
+        button.onclick = function () {
+            if (texts.value) {
+                var li = document.createElement('li');
+                /*
+                g: 全文匹配
+                i：忽略大小写
+                gi：全局匹配 + 忽略大小写
+                */
+                texts.value = texts.value.replace(/激情|基佬|妈的/g, '**');
+                li.innerHTML = texts.value;
+                ul.insertBefore(li, ul.children[0]);
+                texts.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

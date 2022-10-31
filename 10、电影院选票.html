@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid grey;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        ul li {
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+            height: 50px;
+            width: 130px;
+            background-color: blanchedalmond;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .moves {
+            line-height: 100px;
+            font-size: 30px;
+            width: 300px;
+            height: 100px;
+            margin: 0 auto;
+            border: 1px solid red;
+            text-align: center;
+        }
+
+        .change {
+            background-color: rgb(216, 159, 66);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="moves">
+            电影在这里
+        </div>
+    </div>
+    <script>
+        let lis = document.querySelectorAll('li');
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+                if (this.className != 'change') {
+                    this.className = 'change';
+                    lis[i].innerText = '座位已选'
+                }
+                else {
+                    alert('座位已被选');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

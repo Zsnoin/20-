@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/JQuery/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="/19、购物车.css">
+    <script src="/19、购物车.js"></script>
+</head>
+
+<body>
+    <div class="shop-head">
+        <div class="shop-head-top">
+            <ul class="login">
+                <li>品优购欢迎您!</li>
+                <li>
+                    <a href="javascript:;" class="a1">请登录</a>
+                </li>
+                <li>
+                    <a href="javascript:;" style="color: red;">免费注册！</a>
+                </li>
+            </ul>
+            <ul class="menu">
+                <li>网站导航</li>
+                <li>客户服务 |</li>
+                <li>关注品优购 |</li>
+                <li>企业采购 |</li>
+                <li>品优购会员 |</li>
+                <li>我的品优购 |</li>
+                <li>我的订单 |</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="search">
+        <a href="#">
+            <img src="https://yangyanyan.top/pygshopping/img/logo.png" alt="" class="logo">
+        </a>
+        <span>
+            购物车
+        </span>
+        <div>
+            <input type="text" placeholder="自营">
+            <button>搜索</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- one -->
+        <div class="content-one">
+            全部商品
+        </div>
+
+        <!-- two -->
+        <div class="content-two">
+            <ul class="two-left">
+                <li><input type="checkbox" class="checkbox1">全选</li>
+                <li>商品</li>
+            </ul>
+            <ul class="two-right">
+                <li>操作</li>
+                <li>总价</li>
+                <li>小计</li>
+                <li>单价</li>
+            </ul>
+        </div>
+
+        <!-- three -->
+        <div class="content-three">
+            <ul class="three-left">
+                <li>
+                    <input type="checkbox" class="checkbox">
+                </li>
+            </ul>
+            <div class="book-three">
+                <div>
+                    <img src="https://yangyanyan.top/pygshopping/upload/p1.jpg" alt="">
+                </div>
+                <div>
+                    【5本26.8元】经典儿童文学彩图青少版八十天环游地球中学生语文教学大纲
+                </div>
+            </div>
+            <ul class="three-right">
+                <li><div class="del">删除</div></li>
+                <li class="sum">￥12.60</li>
+                <li>
+                    <span class="decrement">-</span>
+                    <input type="text" value="1" class="nan">
+                    <span class="increment">+</span>
+                </li>
+                <li class="price">￥12.60</li>
+            </ul>
+        </div>
+
+        <!-- four -->
+        <div class="content-four content-three">
+            <ul class="three-left">
+                <li>
+                    <input type="checkbox" class="checkbox">
+                </li>
+            </ul>
+            <div class="book-three">
+                <div>
+                    <img src="https://yangyanyan.top/pygshopping/upload/p2.jpg" alt="">
+                </div>
+                <div>
+                    【2000张贴纸】贴纸书 3-6岁 贴画儿童 贴画书全套12册 贴画 贴纸儿童 汽
+                </div>
+            </div>
+            <ul class="three-right">
+                <li><div class="del">删除</div></li>
+                <li class="sum">￥24.80</li>
+                <li>
+                    <span class="decrement">-</span>
+                    <input type="text" value="1" class="nan">
+                    <span class="increment">+</span>
+                </li>
+                <li class="price">￥24.80</li>
+            </ul>
+        </div>
+
+        <!-- five -->
+        <div class="content-five content-three">
+            <ul class="three-left">
+                <li>
+                    <input type="checkbox" class="checkbox">
+                </li>
+            </ul>
+            <div class="book-three">
+                <div>
+                    <img src="https://yangyanyan.top/pygshopping/upload/p3.jpg" alt="">
+                </div>
+                <div>
+                    唐诗三百首+成语故事全2册 一年级课外书 精装注音儿童版 小学生二三年级课外阅读书籍
+                </div>
+            </div>
+            <ul class="three-right">
+                <li><div class="del">删除</div></li>
+                <li class="sum">￥29.80</li>
+                <li>
+                    <span class="decrement">-</span>
+                    <input type="text" value="1" class="nan">
+                    <span class="increment">+</span>
+                </li>
+                <li class="price">￥29.80</li>
+            </ul>
+        </div>
+        <div class="content-five content-three">
+            <ul class="three-left">
+                <li>
+                    <input type="checkbox" class="checkbox">
+                </li>
+            </ul>
+            <div class="book-three">
+                <div>
+                    <img src="https://yangyanyan.top/pygshopping/upload/p3.jpg" alt="">
+                </div>
+                <div>
+                    唐诗三百首+成语故事全2册 一年级课外书 精装注音儿童版 小学生二三年级课外阅读书籍
+                </div>
+            </div>
+            <ul class="three-right">
+                <li><div class="del">删除</div></li>
+                <li class="sum">￥29.80</li>
+                <li>
+                    <span class="decrement">-</span>
+                    <input type="text" value="1" class="nan">
+                    <span class="increment">+</span>
+                </li>
+                <li class="price">￥29.80</li>
+            </ul>
+        </div>
+        <div class="content-five content-three">
+            <ul class="three-left">
+                <li>
+                    <input type="checkbox" class="checkbox">
+                </li>
+            </ul>
+            <div class="book-three">
+                <div>
+                    <img src="https://yangyanyan.top/pygshopping/upload/p3.jpg" alt="">
+                </div>
+                <div>
+                    唐诗三百首+成语故事全2册 一年级课外书 精装注音儿童版 小学生二三年级课外阅读书籍
+                </div>
+            </div>
+            <ul class="three-right">
+                <li><div class="del">删除</div></li>
+                <li class="sum">￥29.80</li>
+                <li>
+                    <span class="decrement">-</span>
+                    <input type="text" value="1" class="nan">
+                    <span class="increment">+</span>
+                </li>
+                <li class="price">￥29.80</li>
+            </ul>
+        </div>
+        
+
+
+        <!-- six -->
+        <div class="content-closing">
+            <ul class="six-left">
+                <li>
+                    <input type="checkbox" class="checkbox2">
+                    全选
+                </li>
+                <li class="del-checked">删除选中的商品</li>
+                <li class="clear-shop">清理购物车</li>
+            </ul>
+
+            <ul class="six-right">
+                <li><button>去结算</button></li>
+                <li class="total-sum"><span>总价：￥0.00</span></li>
+                <li class="total-num">以选中<span>0</span>件商品</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- 最后-->
+    <div class="last">
+        <div class="last-one">
+            <ul>
+                <li>
+                    <div class="last-figure1"></div>
+                    <div>
+                        <b>正品保证</b>
+                        <p>正品保证，提供发票</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="last-figure2"></div>
+                    <div>
+                        <b>急速物流</b>
+                        <p>急速物流，急速送达</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="last-figure3"></div>
+                    <div>
+                        <b>无忧售后</b>
+                        <p>7天无理由退货</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="last-figure4"></div>
+                    <div>
+                        <b>特色服务</b>
+                        <p>私人定制家电套餐</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="last-figure5"></div>
+                    <div>
+                        <b>帮助中心</b>
+                        <p>帮助中心，您的购物指南</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- last-two -->
+        <div class="last-two">
+            <ul>
+                <li>服务指南</li>
+                <li> 购物流程</li>
+                <li>会员介绍</li>
+                <li>生活旅行/团购</li>
+                <li>常见问题</li>
+                <li>大家电</li>
+                <li>联系客服</li>
+            </ul>
+            <ul>
+                <li>配送方式</li>
+                <li>上门自提</li>
+                <li>211限时达</li>
+                <li>配送服务查询</li>
+                <li>配送费收取标准</li>
+                <li>海外配送</li>
+            </ul>
+            <ul>
+                <li>支付方式</li>
+                <li>货到付款</li>
+                <li>在线支付</li>
+                <li>分期付款</li>
+                <li>邮局汇款</li>
+                <li>公司转账</li>
+            </ul>
+            <ul>
+                <li>售后服务</li>
+                <li>售后政策</li>
+                <li>价格保护</li>
+                <li>退款说明</li>
+                <li>返修/退换货</li>
+                <li>取消订单</li>
+            </ul>
+            <ul>
+                <li>特色服务</li>
+                <li>夺宝岛</li>
+                <li>DIY装机</li>
+                <li>延保服务</li>
+                <li>品优购E卡</li>
+                <li>品优购通信</li>
+            </ul>
+            <ul>
+                <li>帮助中心</li>
+                <li><img src="https://yangyanyan.top/pygshopping/img/%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BA%8C%E7%BB%B4%E7%A0%81_03.png"
+                        alt=""></li>
+                <li>品优购客户端</li>
+            </ul>
+        </div>
+
+        <!-- last-three -->
+        <div class="last-three">
+            <ul class="ul">
+                <li>关于我们 | </li>
+                <li>联系我们 | </li>
+                <li>联系客服 | </li>
+                <li>商家入驻 |</li>
+                <li>商家入驻 |</li>
+                <li>手机品优购 |</li>
+                <li>友情链接 |</li>
+                <li>销售联盟 |</li>
+                <li>品优购社区 |</li>
+                <li>品优购公益 |</li>
+                <li>English Site |</li>
+                <li>Contact U</li>
+            </ul>
+            <ul class="ul1">
+                <li>地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn</li>
+            </ul>
+            <ul class="ul1">
+                <li>京ICP备08001421号京公网安备110108007702</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

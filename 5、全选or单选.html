@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                全选: <input type="checkbox" class="all">
+            </li>
+            <li>
+                <input type="checkbox" class="radio">
+            </li>
+            <li>
+                <input type="checkbox" class="radio">
+            </li>
+            <li>
+                <input type="checkbox" class="radio">
+            </li>
+            <li>
+                <input type="checkbox" class="radio">
+            </li>
+        </ul>
+        <script>
+            let all = document.querySelector('.all');
+            let radios = document.querySelectorAll('.radio');
+            all.onclick = function () {
+                for (let i = 0; i < radios.length; i++) {
+                    radios[i].checked = all.checked;
+                }
+            }
+            for (let i = 0; i < radios.length; i++) {
+                radios[i].onclick = function () {
+                    let flag = true;
+                    for (let j = 0; j < radios.length; j++) {
+                        if (radios[j].checked === false) {
+                            flag = false;
+                        }
+                    }
+                    all.checked = flag;
+                }
+
+            }
+        </script>
+    </div>
+</body>
+
+</html>

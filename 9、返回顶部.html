@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 3000px;
+            position: relative;
+        }
+
+        span {
+            display: none;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            text-align: center;
+            width: 48px;
+            background-color: aqua;
+            font-size: 20px;
+        }
+        .top{
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">顶部</div>
+        <span>返回顶部</span>
+    </div>
+    <script>
+        let spans = document.querySelector('span');
+        let divs = document.querySelector('.box');
+        window.onscroll = function () {
+            // 浏览器卷曲的高度
+            let x = document.scrollingElement.scrollTop;
+            if (x > 600) {
+                spans.style.display = 'block';
+            } else {
+                spans.style.display = 'none';
+            }
+        }
+        spans.onclick = function () {
+            window.scrollTo({
+                left:0,
+                top:0,
+                behavior:'smooth'
+            })
+        }
+    </script>
+</body>
+
+</html>

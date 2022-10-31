@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 0 auto;
+            width: 250px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .box div {
+            text-align: center;
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            background-color: bisque;
+        }
+
+        .box .start {
+            cursor: pointer;
+            background-color: red;
+        }
+
+        .change {
+            background-color: chocolate !important;
+        }
+        p{
+            width: 250px;
+            background-color: antiquewhite;
+            margin: 0 auto;
+            text-align: center;
+            color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="divs">手机</div>
+        <div class="divs">电脑</div>
+        <div class="divs">耳机</div>
+        <div class="divs">笔记本</div>
+        <div class="start">开始</div>
+        <div class="divs">家电</div>
+        <div class="divs">电器</div>
+        <div class="divs">冰箱</div>
+        <div class="divs">电视</div>
+    </div>
+    <p></p>
+    
+    <script>
+        let start = document.querySelector('.start');
+        let divs = document.querySelectorAll('.divs');
+        let timer = null;
+        start.onclick = function () {
+            let bom = 0;
+            if (timer == null) {
+                timer = setInterval(() => {
+                    bom++;
+                    if (bom < 15) {
+                        let num = Math.floor(Math.random() * 8);
+                        console.log(num);
+                        for (let i = 0; i < divs.length; i++) {
+                            divs[i].classList.remove('change')
+                        }
+                        divs[num].classList.add('change');
+                    } else {
+                        let change = document.querySelector('.change')
+                        let p = document.querySelector('p')
+                        clearInterval(timer);
+                        timer = null;
+                        p.innerHTML = `恭喜您获得${change.innerHTML}`;
+                    }
+                }, 200);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: center;
+            height: 30px;
+            border: 1px solid grey;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <form>
+            姓名:<input type="text" class="uname"> <br><br>
+            年龄:<input type="text" class="age"> <br><br>
+            学号:<input type="text" class="inform"> <br><br>
+            性别:<input type="text" class="nums"> <br><br>
+            <button>提交</button>
+            
+        </form>
+        <br>
+        <table cellspance="0">
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>学号</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let uname = document.querySelector('.uname');
+        let age = document.querySelector('.age');
+        let inform = document.querySelector('.inform');
+        let nums = document.querySelector('.nums');
+        let btn = document.querySelector('.btn');
+        let form = document.querySelector('form');
+        let table = document.querySelector('table');
+
+        // 监听表单提交事件
+        form.onsubmit = function (e) {
+            // 阻止默认提交行为
+            e.preventDefault();
+            if (uname.value != '' && age.value != '' && inform.value != '' && nums.value != '') {
+                let tr = document.createElement('tr');
+                tr.innerHTML = `
+                <td>${uname.value}</td>
+                <td>${age.value}</td>
+                <td>${inform.value}</td>
+                <td>${nums.value}</td>
+                <td><a href="javascript:;">删除</a></td>
+        `;
+                table.appendChild(tr);
+            }
+            // 重置表单
+            form.reset();
+            let as = document.querySelectorAll('a');
+            for (let j = 0; j < as.length; j++) {
+                as[j].onclick = function(){
+                    this.parentNode.parentNode.remove()
+                }
+                
+            }
+        }
+    </script>
+</body>
+
+</html>

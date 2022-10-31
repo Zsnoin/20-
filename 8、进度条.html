@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            font-size: 5px;
+            line-height: 15px;
+            width: 0;
+            height: 15px;
+            background-color: rgb(20, 16, 26);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <button>开始</button>
+    <script>
+        let divs = document.querySelector('div');
+        let btn = document.querySelector('button');
+        let times = null;
+        btn.onclick = function () {
+            let num = 0;
+            if (times == null) {
+                times = setInterval(function () {
+                    if (num < 100) {
+                        num++;
+                        divs.style.width = num * 4 + 'px';
+                        divs.innerHTML = `${num}%`
+                    }
+                    else {
+                        clearInterval(times);
+                        times=null;
+                    }
+                }, 50)
+            }
+        }
+    </script>
+</body>
+
+</html>

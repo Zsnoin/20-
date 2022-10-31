@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .word {
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="word">单击获取验证码</div>
+        请输入验证码: <input type="text">
+        <p>
+            <button>立即验证</button>
+        </p>
+    </div>
+    <script>
+        let num = 65;
+        console.log(String.fromCharCode(num));
+        let button = document.querySelector('button');
+        let word = document.querySelector('.word');
+        let input = document.querySelector('input');
+        word.onclick = function () {
+            fd();
+        }
+        button.onclick = function(){
+            if (input.value==word.innerText) {
+                alert('验证成功')
+            }
+            else{
+                alert('验证码错误，请重新输入');
+                fd();
+            }
+        }
+
+
+
+
+        // 验证码函数
+        function fd(){
+            let arrs = [];
+            let a = Math.floor(Math.random() * 10);
+            let b = Math.floor(Math.random() * 10);
+            let c = String.fromCharCode(Math.floor(Math.random() * 27 + 65));
+            let d = String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+            arrs.push(a, b, c, d)
+            let text = []
+            for (let i = 0; i < arrs.length; i++) {
+                let nums = Math.floor(Math.random() * 4);
+                text.push(arrs[nums])
+            }
+            let str = text.join('');
+            word.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

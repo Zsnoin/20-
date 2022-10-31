@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .ul1>li {
+            float: left;
+            margin: 10px;
+            background-color: darkorange;
+        }
+
+        .ul2 {
+            display: none;
+        }
+
+        .ul2 li {
+            background-color: rgb(62, 148, 138);
+        }
+
+        .ul3 {
+            display: none;
+        }
+
+        .ul3 li {
+            background-color: rgb(112, 30, 189);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="ul1">
+        <!-- <li class="li1">
+            <a href="javascript:;">一级导航</a>
+            <ul class="ul2">
+                <li class="li2">
+                    <a href="javascript:;">二级导航</a>
+                    <ul class="ul3">
+                        <li class="li3">
+                            <a href="javascript:;">三级导航</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li> -->
+    </ul>
+    <script>
+        let ul1 = document.querySelector('.ul1');
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', './14、nav.json', true)
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let str = JSON.parse(xhr.responseText);
+                // 第一层数据
+                let li1 = ''
+                str.data.forEach(one => {
+                    // console.log(one);
+
+                    // 第二层数据
+                    let li2 = '';
+                    one.content.forEach(two => {
+                        // console.log(two);
+
+                        // 第三层数据
+                        let li3 = '';
+                        two.content.forEach(three => {
+                            // console.log(three);
+                            li3 += `
+                            <li class="li3">
+                            <a href="javascript:;">${three}</a>
+                            </li>
+                            `
+                        });
+
+                        li2 += `
+                        <li class="li2">
+                        <a href="javascript:;">${two.title}</a>
+                        <ul class="ul3">
+                            ${li3}
+                        </ul>
+                        </li>
+                        `
+                    });
+
+                    li1 += `
+                    <li class="li1">
+                    <a href="javascript:;">${one.title}</a>
+                    <ul class="ul2">
+                        ${li2}
+                    </ul>
+                    </li>
+                    `
+                });
+                ul1.innerHTML = li1;
+
+                // 显示与隐藏
+                //鼠标移入li1，让ul2显示，反之隐藏
+                //鼠标移入li2，让ul3显示，反之隐藏
+                let li_1 = document.querySelectorAll('.li1');
+                let ul_2 = document.querySelectorAll('.ul2');
+                fn(li_1,ul_2)
+                let li_2 = document.querySelectorAll('.li2');
+                let ul_3 = document.querySelectorAll('.ul3');
+                fn(li_2,ul_3)
+
+            }
+
+        }
+        function fn(li_1,ul_2){
+            for (let i = 0; i < li_1.length; i++) {
+                    li_1[i].onclick = function () {
+                        ul_2[i].style.display = 'block'
+                    }
+                    li_1[i].onmouseleave = function () {
+                        ul_2[i].style.display = 'none'
+                    }
+                }
+        }
+    </script>
+</body>
+
+</html>
